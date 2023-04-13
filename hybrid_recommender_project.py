@@ -102,8 +102,8 @@ user_movie_df.head()
 
 def create_user_movie_df():
     import pandas as pd
-    movie = pd.read_csv('C:/Users/Tugce.Dogan/Downloads/movie.csv')
-    rating = pd.read_csv('C:/Users/Tugce.Dogan/Downloads/rating.csv')
+    movie = pd.read_csv('datasets/movie_lens_dataset/movie.csv')
+    rating = pd.read_csv('datasets/movie_lens_dataset/rating.csv')
     df = movie.merge(rating, how="left", on="movieId")
     comment_counts = pd.DataFrame(df["title"].value_counts())
     rare_movies = comment_counts[comment_counts["title"] <= 1000].index
